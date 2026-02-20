@@ -113,7 +113,7 @@ export default function CartDrawer() {
                                 <>
                                     <div className="success-icon">🎉</div>
                                     <h4>Order Successful!</h4>
-                                    <p>Order ID: <strong>{activeOrderId}</strong></p>
+                                    <p>Order ID: <strong>{activeOrder?.orderNumber}</strong></p>
                                     <p style={{ fontSize: '0.85rem', marginTop: '1rem', color: '#6ee098' }}>
                                         Payment confirmed. We are preparing your gift! 🌸
                                     </p>
@@ -125,7 +125,7 @@ export default function CartDrawer() {
                                 <>
                                     <div className="success-icon" style={{ animation: 'pulse 1.5s infinite' }}>⏳</div>
                                     <h4>Order Request Pending</h4>
-                                    <p>Order ID: <strong>{activeOrderId}</strong></p>
+                                    <p>Order ID: <strong>{activeOrder?.orderNumber}</strong></p>
                                     <div className="payment-instruction" style={{ marginTop: '1.5rem' }}>
                                         <p>We are verifying your payment details.</p>
                                         <small>Please keep this window open. This screen will update automatically once the admin approves your order.</small>

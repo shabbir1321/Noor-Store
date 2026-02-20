@@ -47,15 +47,15 @@ export default function AdminDashboard({ onBack }) {
                                 orders.map((order) => (
                                     <tr key={order.id}>
                                         <td>
-                                            <span className="order-id-badge">{order.id}</span>
+                                            <span className="order-id-badge">{order.orderNumber}</span>
                                             <div style={{ fontSize: '0.65rem', color: 'var(--color-text-dim)', marginTop: '4px' }}>
                                                 {new Date(order.date).toLocaleDateString()}
                                             </div>
                                         </td>
                                         <td>
-                                            <div className="customer-name">{order.customer.name}</div>
-                                            <div className="customer-phone">{order.customer.phone}</div>
-                                            <div className="customer-address">{order.customer.address}</div>
+                                            <div className="customer-name">{order.customer?.name}</div>
+                                            <div className="customer-phone">{order.customer?.phone}</div>
+                                            <div className="customer-address">{order.customer?.address}</div>
                                         </td>
                                         <td>
                                             <div className="order-items-compact">

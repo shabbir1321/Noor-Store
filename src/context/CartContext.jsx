@@ -1,29 +1,34 @@
 import { createContext, useContext, useState, useCallback, useEffect } from 'react';
+import { db } from '../firebase';
+import {
+    collection,
+    addDoc,
+    onSnapshot,
+    updateDoc,
+    doc,
+    query,
+    orderBy
+} from 'firebase/firestore';
 
 const CartContext = createContext(null);
 
 export function CartProvider({ children }) {
     const [cartItems, setCartItems] = useState([]);
     const [isCartOpen, setIsCartOpen] = useState(false);
-    const [orders, setOrders] = useState(() => {
-        const saved = localStorage.getItem('noor_orders');
-        return saved ? JSON.parse(saved) : [];
-    });
+    const [orders, setOrders] = useState([]);
 
-    // Persist orders to localStorage
+    // Real-time listener for orders from Firebase
     useEffect(() => {
-        localStorage.setItem('noor_orders', JSON.stringify(orders));
-    }, [orders]);
+        const q = query(collection(db, 'orders'), orderBy('date', 'desc'));
+        const unsubscribe = onSnapshot(q, (snapshot) => {
+            const ordersData = snapshot.docs.map(doc => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+            setOrders(ordersData);
+        });
 
-    // Sync with other tabs (e.g. Admin updates status in another tab)
-    useEffect(() => {
-        const handleStorageChange = (e) => {
-            if (e.key === 'noor_orders' && e.newValue) {
-                setOrders(JSON.parse(e.newValue));
-            }
-        };
-        window.addEventListener('storage', handleStorageChange);
-        return () => window.removeEventListener('storage', handleStorageChange);
+        return () => unsubscribe();
     }, []);
 
     const addToCart = useCallback((product) => {
@@ -52,28 +57,33 @@ export function CartProvider({ children }) {
 
     const clearCart = useCallback(() => setCartItems([]), []);
 
-    const placeOrder = useCallback((customerInfo) => {
-        const newOrder = {
-            id: `NC-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
+    const placeOrder = useCallback(async (customerInfo) => {
+        const orderData = {
+            orderNumber: `NC-${Math.random().toString(36).substr(2, 6).toUpperCase()}`,
             items: [...cartItems],
             total: cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0),
-            customer: customerInfo, // { name, phone, address }
-            status: 'pending', // 'pending', 'approved', 'declined'
+            customer: customerInfo,
+            status: 'pending',
             date: new Date().toISOString(),
         };
 
-        setOrders((prev) => [newOrder, ...prev]);
-        clearCart();
-        return newOrder;
+        try {
+            const docRef = await addDoc(collection(db, 'orders'), orderData);
+            clearCart();
+            return { id: docRef.id, ...orderData };
+        } catch (error) {
+            console.error("Error placing order: ", error);
+            throw error;
+        }
     }, [cartItems, clearCart]);
 
-    const updateOrderStatus = useCallback((orderId, status) => {
-        setOrders((prev) => {
-            const updated = prev.map((o) => (o.id === orderId ? { ...o, status } : o));
-            // Manually trigger storage event for the same tab if necessary, 
-            // but localStorage.setItem in the useEffect will handle cross-tab.
-            return updated;
-        });
+    const updateOrderStatus = useCallback(async (orderId, status) => {
+        try {
+            const orderRef = doc(db, 'orders', orderId);
+            await updateDoc(orderRef, { status });
+        } catch (error) {
+            console.error("Error updating order status: ", error);
+        }
     }, []);
 
     const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
