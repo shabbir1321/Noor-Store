@@ -154,14 +154,27 @@ function AdminWrapper() {
   return <AdminDashboard onBack={() => window.location.href = '/'} />;
 }
 
+const APP_MODE = import.meta.env.VITE_APP_MODE || 'shop';
+
 function App() {
   return (
     <CartProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<ShopPage />} />
-          <Route path="/admin" element={<AdminWrapper />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          {APP_MODE === 'admin' ? (
+            <>
+              {/* Standalone Admin Deployment */}
+              <Route path="/" element={<AdminWrapper />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </>
+          ) : (
+            <>
+              {/* Standalone Shop Deployment */}
+              <Route path="/" element={<ShopPage />} />
+              {/* /admin is disabled in shop mode for maximum security */}
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </>
+          )}
         </Routes>
       </BrowserRouter>
     </CartProvider>
