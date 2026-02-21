@@ -9,16 +9,20 @@ export default function CheckoutForm({ onComplete }) {
         address: '',
     });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!formData.name || !formData.phone || !formData.address) return;
-        const order = placeOrder(formData);
-        onComplete(order);
+        try {
+            const order = await placeOrder(formData);
+            onComplete(order);
+        } catch (error) {
+            alert("Failed to place order. Please try again.");
+        }
     };
 
     return (
         <div className="checkout-form-container">
-            <h4 style={{ marginBottom: '1rem', color: 'var(--color-cream)' }}>Delivery Details</h4>
+            <h4>Delivery Details</h4>
             <form onSubmit={handleSubmit} className="checkout-form">
                 <div className="form-group">
                     <label>Full Name</label>

@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:shop": "vite --mode shop --port 3000",
+    "dev:admin": "vite --mode admin --port 4000",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"

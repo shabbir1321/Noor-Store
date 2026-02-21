@@ -1,180 +1,197 @@
 export const categories = [
-  { id: 'all', name: 'All Gifts', icon: '🎁' },
-  { id: 'flowers', name: 'Flowers', icon: '🌸' },
-  { id: 'cakes', name: 'Cakes & Sweets', icon: '🎂' },
-  { id: 'teddies', name: 'Teddies & Toys', icon: '🧸' },
-  { id: 'jewelry', name: 'Jewelry', icon: '💍' },
-  { id: 'perfumes', name: 'Perfumes', icon: '🌹' },
-  { id: 'hampers', name: 'Gift Hampers', icon: '🎀' },
-  { id: 'candles', name: 'Candles & Decor', icon: '🕯️' },
+  { id: 'all', name: 'All Collections', icon: '', bannerImage: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1200' },
+  { id: 'custom-apparel', name: 'Premium Apparel', icon: '', bannerImage: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1200' },
+  { id: 'personalized-gifts', name: 'Exclusive Gifts', icon: '', bannerImage: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=1200' },
+  { id: 'stationery', name: 'Professional Stationery', icon: '', bannerImage: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=1200' },
+  { id: 'corporate', name: 'Corporate Identity', icon: '', bannerImage: 'https://images.unsplash.com/photo-1557804483-ef3ae78963f0?w=1200' },
+  { id: 'decor', name: 'Interior Decor', icon: '', bannerImage: 'https://images.unsplash.com/photo-1621434071511-2eb7ca971038?w=1200' },
+  { id: 'awards', name: 'Recognition & Awards', icon: '', bannerImage: 'https://images.unsplash.com/photo-1514330664402-3c48007a33a3?w=1200' },
 ];
 
-export const products = [
-  // Flowers
+export const carouselSlides = [
   {
     id: 1,
-    name: 'Red Rose Bouquet',
-    category: 'flowers',
-    price: 599,
-    originalPrice: 799,
-    image: 'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=400&q=80',
-    description: 'A stunning bouquet of 12 fresh red roses, perfect for expressing love.',
-    badge: 'Bestseller',
+    image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1600&q=80',
+    title: 'Bespoke Apparel',
+    subtitle: 'High-quality prints on premium cotton',
+    buttonText: 'Explore Collection',
+    link: '/category/custom-apparel'
   },
   {
     id: 2,
-    name: 'Mixed Floral Bouquet',
-    category: 'flowers',
-    price: 749,
-    originalPrice: 999,
-    image: 'https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=400&q=80',
-    description: 'A vibrant mix of seasonal blooms arranged by expert florists.',
-    badge: 'New',
+    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1600&q=80',
+    title: 'Corporate Solutions',
+    subtitle: 'Branded identity and executive gifts',
+    buttonText: 'View Details',
+    link: '/category/corporate'
   },
   {
     id: 3,
-    name: 'White Lily Arrangement',
-    category: 'flowers',
-    price: 849,
-    originalPrice: 1099,
-    image: 'https://images.unsplash.com/photo-1490750967868-88df5691cc48?w=400&q=80',
-    description: 'Elegant white lilies symbolizing purity and grace.',
-    badge: null,
-  },
-  // Cakes
+    image: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1600&q=80',
+    title: 'Interior Curation',
+    subtitle: 'Personalized accents for modern spaces',
+    buttonText: 'Shop Now',
+    link: '/category/decor'
+  }
+];
+
+export const products = [
+  // Custom Apparel
   {
-    id: 4,
-    name: 'Chocolate Truffle Cake',
-    category: 'cakes',
-    price: 699,
-    originalPrice: 899,
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80',
-    description: 'Rich and decadent chocolate truffle cake — 500g.',
-    badge: 'Popular',
+    id: 101,
+    name: 'Custom Premium T-Shirt',
+    category: 'custom-apparel',
+    price: 999,
+    originalPrice: 1499,
+    image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80',
+    description: '100% Cotton premium t-shirt. Customizable with your own design.',
+    fullDescription: 'Our premium custom t-shirt is made from high-quality 100% combed cotton, providing unmatched comfort and durability. Use our real-time customizer to upload your design and see a preview on the shirt before you buy.',
+    specifications: [
+      { key: 'Material', value: '100% Combed Cotton' },
+      { key: 'Fit', value: 'Unisex Relaxed' },
+      { key: 'Print', value: 'High-Resolution DTG' }
+    ],
+    badge: 'Customizable',
+    isCustomizable: true
   },
+  // Personalized Gifts
   {
-    id: 5,
-    name: 'Strawberry Cream Cake',
-    category: 'cakes',
-    price: 649,
-    originalPrice: 849,
-    image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&q=80',
-    description: 'Fresh strawberries layered over velvety cream — 500g.',
-    badge: null,
-  },
-  {
-    id: 6,
-    name: 'Assorted Sweets Box',
-    category: 'cakes',
-    price: 399,
-    originalPrice: 549,
-    image: 'https://images.unsplash.com/photo-1548907040-4baa42d10919?w=400&q=80',
-    description: 'A beautiful box of assorted traditional and fusion sweets.',
-    badge: 'New',
-  },
-  // Teddies
-  {
-    id: 7,
-    name: 'Giant Hug Teddy Bear',
-    category: 'teddies',
-    price: 1299,
-    originalPrice: 1699,
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80',
-    description: 'A super soft and huggable 3-foot teddy bear in classic brown.',
-    badge: 'Bestseller',
+    id: 201,
+    name: 'Personalized Ceramic Mug',
+    category: 'personalized-gifts',
+    price: 349,
+    originalPrice: 499,
+    image: 'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&q=80',
+    description: 'High-quality 11oz ceramic mug with personalized print.',
+    badge: 'Popular'
   },
   {
-    id: 8,
-    name: 'Pink Bunny Plush',
-    category: 'teddies',
+    id: 202,
+    name: 'Custom Steel Water Bottle',
+    category: 'personalized-gifts',
+    price: 899,
+    originalPrice: 1199,
+    image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&q=80',
+    badge: 'Eco-Friendly'
+  },
+  {
+    id: 203,
+    name: 'Personalized Photo Pillow',
+    category: 'personalized-gifts',
     price: 599,
     originalPrice: 799,
-    image: 'https://images.unsplash.com/photo-1607153333879-c174d265f1d2?w=400&q=80',
-    description: 'An adorable pink bunny plush perfect for all ages.',
-    badge: null,
-  },
-  // Jewelry
-  {
-    id: 9,
-    name: 'Rose Gold Bracelet',
-    category: 'jewelry',
-    price: 1499,
-    originalPrice: 2099,
-    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&q=80',
-    description: 'Delicate rose gold bracelet with crystal charm accents.',
-    badge: 'Premium',
+    image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400&q=80'
   },
   {
-    id: 10,
-    name: 'Silver Heart Necklace',
-    category: 'jewelry',
-    price: 999,
-    originalPrice: 1399,
-    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&q=80',
-    description: 'A timeless sterling silver heart pendant on a fine chain.',
-    badge: null,
-  },
-  // Perfumes
-  {
-    id: 11,
-    name: 'Oud & Rose Perfume',
-    category: 'perfumes',
-    price: 1899,
-    originalPrice: 2499,
-    image: 'https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&q=80',
-    description: 'A luxurious blend of rich oud and blooming roses — 50ml.',
-    badge: 'Luxury',
-  },
-  {
-    id: 12,
-    name: 'Fresh Aqua Cologne',
-    category: 'perfumes',
-    price: 1299,
-    originalPrice: 1699,
-    image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?w=400&q=80',
-    description: 'A crisp, fresh aquatic scent for everyday elegance — 60ml.',
-    badge: null,
-  },
-  // Hampers
-  {
-    id: 13,
-    name: 'Premium Love Hamper',
-    category: 'hampers',
-    price: 2499,
-    originalPrice: 3199,
-    image: 'https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80',
-    description: 'Includes roses, chocolates, a teddy, and a scented candle.',
-    badge: 'Bestseller',
-  },
-  {
-    id: 14,
-    name: 'Birthday Surprise Hamper',
-    category: 'hampers',
-    price: 1999,
-    originalPrice: 2699,
-    image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=400&q=80',
-    description: 'A celebratory hamper with cake, balloons, and more.',
-    badge: 'Popular',
-  },
-  // Candles
-  {
-    id: 15,
-    name: 'Luxury Soy Candle Set',
-    category: 'candles',
+    id: 204,
+    name: 'LED Glow Pillow',
+    category: 'personalized-gifts',
     price: 799,
     originalPrice: 1099,
-    image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&q=80',
-    description: 'Set of 3 hand-poured soy candles in vanilla, jasmine, and sandalwood.',
-    badge: 'New',
+    image: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&q=80',
+    badge: 'New'
   },
   {
-    id: 16,
-    name: 'Crystal Votive Holder',
-    category: 'candles',
+    id: 205,
+    name: 'Personalized Key Chain',
+    category: 'personalized-gifts',
+    price: 199,
+    originalPrice: 299,
+    image: 'https://images.unsplash.com/photo-1619134769835-cd298f265b50?w=400&q=80'
+  },
+  // Stationery
+  {
+    id: 301,
+    name: 'Premium Pen with Name',
+    category: 'stationery',
     price: 499,
-    originalPrice: 699,
-    image: 'https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?w=400&q=80',
-    description: 'Beautiful crystal glass votive holders with tea lights included.',
-    badge: null,
+    originalPrice: 799,
+    image: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&q=80',
+    badge: 'Luxury'
+  },
+  {
+    id: 302,
+    name: 'Custom Name Diary',
+    category: 'stationery',
+    price: 699,
+    originalPrice: 999,
+    image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?w=400&q=80'
+  },
+  {
+    id: 303,
+    name: 'Elegant Pen Holder',
+    category: 'stationery',
+    price: 399,
+    originalPrice: 599,
+    image: 'https://images.unsplash.com/photo-1585822769458-132da970034c?w=400&q=80'
+  },
+  // Corporate
+  {
+    id: 401,
+    name: 'Custom ID Card',
+    category: 'corporate',
+    price: 149,
+    originalPrice: 249,
+    image: 'https://images.unsplash.com/photo-1614036417651-efe413054359?w=400&q=80'
+  },
+  {
+    id: 402,
+    name: 'Branded Display Batches',
+    category: 'corporate',
+    price: 99,
+    originalPrice: 199,
+    image: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=400&q=80'
+  },
+  {
+    id: 403,
+    name: 'Premium Card Holder',
+    category: 'corporate',
+    price: 299,
+    originalPrice: 499,
+    image: 'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=400&q=80'
+  },
+  {
+    id: 404,
+    name: 'Wooden Mobile Stand',
+    category: 'corporate',
+    price: 349,
+    originalPrice: 549,
+    image: 'https://images.unsplash.com/photo-1616423641454-996924b22ee0?w=400&q=80'
+  },
+  // Decor
+  {
+    id: 501,
+    name: 'Acrylic Photo Frame',
+    category: 'decor',
+    price: 1299,
+    originalPrice: 1899,
+    image: 'https://images.unsplash.com/photo-1621434071511-2eb7ca971038?w=400&q=80',
+    badge: 'Premium'
+  },
+  {
+    id: 502,
+    name: 'Magnet Photo Frame',
+    category: 'decor',
+    price: 399,
+    originalPrice: 599,
+    image: 'https://images.unsplash.com/photo-1621434071511-2eb7ca971038?w=400&q=80'
+  },
+  {
+    id: 503,
+    name: 'Designer Night Lamp',
+    category: 'decor',
+    price: 1499,
+    originalPrice: 2199,
+    image: 'https://images.unsplash.com/photo-1507473885765-e6ed03ac196b?w=400&q=80'
+  },
+  // Awards
+  {
+    id: 601,
+    name: 'Modern Excellence Trophy',
+    category: 'awards',
+    price: 1999,
+    originalPrice: 2999,
+    image: 'https://images.unsplash.com/photo-1579493122512-1d154421b933?w=400&q=80',
+    badge: 'Gold'
   },
 ];
