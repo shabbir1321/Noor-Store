@@ -1,0 +1,9 @@
+{
+    "short_name": "Noor Creation",
+    "name": "Noor Creation - Modern Souq",
+    "icons": [],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#121212",
+    "background_color": "#ffffff"
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shopping Cart - Noor Creation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#121212",
+                        "background-light": "#f7f7f7",
+                        "background-dark": "#191919",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex min-h-screen flex-col">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex h-16 items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center bg-primary text-white rounded-lg p-1.5">
+<span class="material-symbols-outlined text-xl">auto_awesome</span>
+</div>
+<h1 class="text-lg font-bold tracking-tight">Noor Creation</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<div class="relative">
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute top-1.5 right-1.5 flex h-2 w-2 rounded-full bg-primary ring-2 ring-white"></span>
+</button>
+</div>
+<div class="h-8 w-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden ring-1 ring-slate-200" data-alt="User profile avatar portrait" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAmfophf5DXZTlNHzZuaVKQGUaDsbSLVxNxZWHi0fSXFqfxUzRj92wCpN9c1sqpl4wleZKDTIV39PQNJy8hgXLPbAMspsoIqyktgXCNYZ3douTKY63HoqjQ_5NzcMSE8uj5VKJwhFibq1eWg1a9sx5cIaf6RLXn94A33OMm_9dmk_-Pf7jcUJ1ZWT_fT8yetK3QgkrdY3FxaDFL_l2fKgIzwaSPuvH2aMBIpv4w6ZdtJ4hXV6v2XVf4nqMiKLjm4nqlpgXRZncYKg");'></div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Cart Items List -->
+<div class="lg:col-span-8">
+<div class="flex items-baseline justify-between mb-8">
+<h2 class="text-3xl font-bold tracking-tight">Your Cart</h2>
+<span class="text-slate-500 text-sm font-medium">3 items</span>
+</div>
+<div class="space-y-1">
+<!-- Item 1 -->
+<div class="group flex items-center gap-6 py-6 border-b border-slate-100 dark:border-slate-800">
+<div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-800">
+<img alt="Silk Saree" class="h-full w-full object-cover object-center" data-alt="Elegant silk embroidered saree fabric close up" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcU3jtSDt80LhEjZfbSgccd2eFinhK8RyQEeSDp3Pc0GCuFVCnL0GFrvfsV9uObu22--l3g_ZjzELej3iR5HopPZunGLewBGgK0sRJfEO21z2ezQ3IKgZwsN1vbyuCJREEJJ1FS48ycOVHZ2UGOrGaku3Jbb9fXSJ2nrbqIYoDax1dH7barsrXLW65Hhbf2CDZ4WENLfIIbtAaPl_0zY28JA-DI8BnUtJJc_Ueau4JnCgLH0PoQti1m_vdFn4SV6i5vrRi7RnoWg"/>
+</div>
+<div class="flex flex-1 flex-col justify-between h-24">
+<div class="flex justify-between">
+<div>
+<h3 class="font-semibold text-slate-900 dark:text-slate-100">Silk Embroidered Saree</h3>
+<p class="text-sm text-slate-500 mt-0.5">Deep Emerald / Floral</p>
+</div>
+<p class="font-semibold text-slate-900 dark:text-slate-100">$120.00</p>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3 bg-slate-100 dark:bg-slate-800 rounded-full px-2 py-1">
+<button class="flex h-6 w-6 items-center justify-center rounded-full hover:bg-white dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="text-sm font-semibold w-4 text-center">1</span>
+<button class="flex h-6 w-6 items-center justify-center rounded-full hover:bg-white dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<button class="text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group flex items-center gap-6 py-6 border-b border-slate-100 dark:border-slate-800">
+<div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-800">
+<img alt="Earrings" class="h-full w-full object-cover object-center" data-alt="Intricate handcrafted gold earrings on white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANkPBgU-4iSzNZT435PUsDwjB5FpQ5_-wC16lFRMHHPt7MUjL6Iur0Gc4Tylfd6j-iMH4m_PrT3_0evsI5HD1RZuUP0O2Jz1DYaOARS4yDHFFvKi5VDxKWTlfR66iusqnVh4DmZSjRc-RS1-QB6qq1p_fKIwgSVcHtCVXWvmL0cKkiDQ5ksnWMMaYLFqxQagfmgXw4Qga8n6bXF6Eq4RdAMZc17KploILsta3md9iVpU1Li6CvF2Z9tDp3eoz5dSUCeYq0HZNw5Q"/>
+</div>
+<div class="flex flex-1 flex-col justify-between h-24">
+<div class="flex justify-between">
+<div>
+<h3 class="font-semibold text-slate-900 dark:text-slate-100">Handcrafted Earrings</h3>
+<p class="text-sm text-slate-500 mt-0.5">24k Gold Plated</p>
+</div>
+<p class="font-semibold text-slate-900 dark:text-slate-100">$45.00</p>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3 bg-slate-100 dark:bg-slate-800 rounded-full px-2 py-1">
+<button class="flex h-6 w-6 items-center justify-center rounded-full hover:bg-white dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="text-sm font-semibold w-4 text-center">2</span>
+<button class="flex h-6 w-6 items-center justify-center rounded-full hover:bg-white dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<button class="text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group flex items-center gap-6 py-6 border-b border-slate-100 dark:border-slate-800">
+<div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-800">
+<img alt="Clutch Bag" class="h-full w-full object-cover object-center" data-alt="Traditional velvet clutch bag with pearls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqveGV4_jNYlPzKpsRLl2E8joUgOlRcDt4PZuAn7gloAaXpYhTNHB7piVXtWAyCL_oQO92ASdzvJoGaKHiKwr89wmJjcBvIhmwi1J4q9WLPfawU4VQ-VErExcmlseqqN2vjfaKFztSST-fYgD4tkgL9m0q8t4IpK8IPDhafhd9OIsl10x6XV7WCGMMOI53LC0iDHglu9Xt49IpTGhqdm4tUS6V3L1HNTB_OE1M9iZp3qz9NXSmj5c1-Mc5j2HhBxBswx0nk8AJaA"/>
+</div>
+<div class="flex flex-1 flex-col justify-between h-24">
+<div class="flex justify-between">
+<div>
+<h3 class="font-semibold text-slate-900 dark:text-slate-100">Velvet Pearl Clutch</h3>
+<p class="text-sm text-slate-500 mt-0.5">Midnight Blue</p>
+</div>
+<p class="font-semibold text-slate-900 dark:text-slate-100">$85.00</p>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3 bg-slate-100 dark:bg-slate-800 rounded-full px-2 py-1">
+<button class="flex h-6 w-6 items-center justify-center rounded-full hover:bg-white dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="text-sm font-semibold w-4 text-center">1</span>
+<button class="flex h-6 w-6 items-center justify-center rounded-full hover:bg-white dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<button class="text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 flex items-center gap-2 text-slate-500 group cursor-pointer hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+<span class="text-sm font-medium">Continue Shopping</span>
+</div>
+</div>
+<!-- Summary Card -->
+<div class="lg:col-span-4">
+<div class="bg-white dark:bg-background-dark border border-slate-100 dark:border-slate-800 rounded-xl p-6 sticky top-24 shadow-sm">
+<h3 class="text-lg font-bold mb-6">Order Summary</h3>
+<div class="space-y-4 mb-6 pb-6 border-b border-slate-100 dark:border-slate-800">
+<div class="flex justify-between text-sm">
+<span class="text-slate-500">Subtotal</span>
+<span class="font-medium text-slate-900 dark:text-slate-100">$295.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-slate-500">Shipping</span>
+<span class="font-medium text-green-600">Free</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-slate-500">Tax</span>
+<span class="font-medium text-slate-900 dark:text-slate-100">$23.60</span>
+</div>
+</div>
+<div class="flex justify-between items-center mb-8">
+<span class="text-base font-bold">Total</span>
+<span class="text-2xl font-bold text-primary dark:text-slate-100">$318.60</span>
+</div>
+<div class="space-y-3">
+<button class="w-full bg-primary text-white py-4 rounded-lg font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span>Checkout</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+<div class="p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl">verified_user</span>
+<div class="text-xs text-slate-500 leading-relaxed">
+                                Secure payment. Your data is protected by industry standard encryption.
+                            </div>
+</div>
+</div>
+<div class="mt-6 flex flex-wrap justify-center gap-4 grayscale opacity-50">
+<span class="material-symbols-outlined">payments</span>
+<span class="material-symbols-outlined">credit_card</span>
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-auto py-8 border-t border-slate-100 dark:border-slate-800">
+<div class="max-w-5xl mx-auto px-4 text-center">
+<p class="text-xs text-slate-400 font-medium uppercase tracking-widest">© 2024 Noor Creation. Minimalist Design for Modern Soul.</p>
+</div>
+</footer>
+</div>
+</body></html>

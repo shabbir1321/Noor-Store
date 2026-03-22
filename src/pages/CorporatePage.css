@@ -1,0 +1,87 @@
+.corporate-page {
+    min-height: 100vh;
+    background: var(--bg-main);
+}
+
+.corp-main-minimal {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 100px 40px;
+}
+
+.corp-empty-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.corp-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--color-charcoal);
+    margin-bottom: 2rem;
+}
+
+.corp-title-minimal {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    color: var(--color-charcoal);
+    margin-bottom: 2rem;
+}
+
+.corp-desc-minimal {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.corp-contact-placeholder {
+    background: var(--color-charcoal);
+    color: var(--color-white);
+    padding: 80px 40px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.corp-contact-placeholder h2 {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-white);
+}
+
+.corp-contact-placeholder p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 3rem;
+}
+
+.btn-corp-minimal {
+    display: inline-block;
+    padding: 16px 40px;
+    background: var(--color-white);
+    color: var(--color-charcoal);
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.btn-corp-minimal:hover {
+    background: var(--color-silver);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .corp-main-minimal {
+        padding: 60px 24px;
+    }
+}

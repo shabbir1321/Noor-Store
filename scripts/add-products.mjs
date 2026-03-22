@@ -1,9 +1,16 @@
-// Local product catalog — add products here directly
-// These will be merged with any Firestore products
+import { db, auth } from "./firebase-init.mjs";
+import { collection, addDoc, getDocs } from "firebase/firestore";
+import { signInAnonymously } from "firebase/auth";
 
-const localProducts = [
+await signInAnonymously(auth);
+console.log("Signed in successfully.");
+
+// Check existing products first
+const existing = await getDocs(collection(db, "products"));
+console.log(`Found ${existing.size} existing product(s).`);
+
+const products = [
     {
-        id: "local-tshirt-001",
         name: "Classic White T-Shirt",
         category: "Apparel",
         price: 499,
@@ -15,7 +22,6 @@ const localProducts = [
         createdAt: new Date("2026-03-01")
     },
     {
-        id: "local-bottle-001",
         name: "Premium Insulated Water Bottle",
         category: "Drinkware",
         price: 799,
@@ -28,4 +34,17 @@ const localProducts = [
     }
 ];
 
-export default localProducts;
+// Only add products that don't already exist (check by name)
+const existingNames = existing.docs.map(d => d.data().name);
+
+for (const product of products) {
+    if (existingNames.includes(product.name)) {
+        console.log(`⏭️  "${product.name}" already exists, skipping.`);
+    } else {
+        const docRef = await addDoc(collection(db, "products"), product);
+        console.log(`✅ Added "${product.name}" → ID: ${docRef.id}`);
+    }
+}
+
+console.log("Done!");
+process.exit(0);

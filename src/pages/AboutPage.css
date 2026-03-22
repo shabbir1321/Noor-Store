@@ -1,0 +1,157 @@
+.about-main {
+    padding-top: 100px;
+    /* Space for Navbar */
+    min-height: 80vh;
+}
+
+.about-hero {
+    padding: 120px 40px;
+    background: var(--bg-main);
+    overflow: hidden;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.about-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-charcoal);
+    margin-bottom: 2rem;
+}
+
+.about-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    color: var(--color-charcoal);
+    margin-bottom: 2.5rem;
+}
+
+.about-desc {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 3.5rem;
+}
+
+.about-desc strong {
+    color: var(--color-charcoal);
+}
+
+.about-stats {
+    display: flex;
+    gap: 4rem;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stat-num {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--color-charcoal);
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+}
+
+.about-image-collage {
+    position: relative;
+    padding: 40px;
+}
+
+.collage-main {
+    width: 90%;
+    aspect-ratio: 4/5;
+    background: var(--color-silver);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: var(--shadow-premium);
+}
+
+.collage-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.collage-sub {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    aspect-ratio: 1/1;
+    background: var(--color-platinum);
+    border: 8px solid var(--color-white);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: var(--shadow-premium);
+    z-index: 2;
+}
+
+.collage-sub img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Values Grid */
+.about-values {
+    padding: 80px 40px;
+    background: var(--color-platinum);
+}
+
+.values-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.value-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--color-charcoal);
+    margin-bottom: 1rem;
+}
+
+.value-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+@media (max-width: 1024px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .about-image-collage {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+}
